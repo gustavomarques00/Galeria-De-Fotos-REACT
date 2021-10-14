@@ -6,7 +6,7 @@ import { ref, listAll, getDownloadURL } from 'firebase/storage'
 export const getAll = async () => {
     let list: Photo[] = [];
 
-    const imagesFolder = ref(storage,'images'); /* Cria referencia da pasta */
+    const imagesFolder = ref(storage,'Images'); /* Cria referencia da pasta */
     const photoList = await listAll(imagesFolder); /* Lista todos os arquivos da pasta */
 
     for(let i in photoList.items) {
@@ -18,6 +18,7 @@ export const getAll = async () => {
             url: photoUrl
         })
     }
+    console.log(list)
 
     /* Retorna o Array */
     return list;
