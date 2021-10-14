@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import * as C from "./App.styles";
 import * as Photos from "./services/photos";
 import { Photo } from "./types/Photo";
+import { PhotoItem } from './components/PhotoItem'
+
 
 const App = () => {
   const [loading, setLoading] = useState(false);
@@ -11,6 +13,7 @@ const App = () => {
     const getPhotos = async () => {
       setLoading(true);
       setPhotos(await Photos.getAll());
+      console.log(photos)
       setLoading(false);
     };
     getPhotos();
